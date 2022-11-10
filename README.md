@@ -1,4 +1,4 @@
-# KhojTheSearch
+# Khoj-Search
 # To Run this project With Vscode:
 # First open the folder with vscode 
 # Then create a virtual environment : py -m venv project .
