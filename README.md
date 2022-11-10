@@ -1,6 +1,7 @@
 # KhojTheSearch
-# To Run this project 
-# First create a virtual environment : py -m venv project .
+# To Run this project With Vscode:
+# First open the folder with vscode 
+# Then create a virtual environment : py -m venv project .
 # Then activate the env: project\Scripts\activate .
 # Now after activate the env you have to install some package,modules.
 # To install package just type: pip install -r requirements.txt .
