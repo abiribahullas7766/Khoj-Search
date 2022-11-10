@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+      
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1 style="color: #5469d4;">Sign up</h1>
+        </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15" style="color:#5469d4">Sign up to create a new account</span>
+              <!--Form submission-->
+              <form id="stripe-login" method='POST' action="">
+                {% csrf_token %}
+                <div class="field padding-bottom--24">
+                  <label for="fullname">First name</label>
+                  <input type="text" name="firstname">
+                </div>
+                <div class="field padding-bottom--24">
+                  <label for="fullname">last name</label>
+                  <input type="text" name="lastname">
+                </div>
+                <div class="field padding-bottom--24">
+                  <label for="username">Username</label>
+                  <input type="text" name="username">
+                </div>
+                <div class="field padding-bottom--24">
+                  <label for="email">Email</label>
+                  <input type="text" name="email">
+                </div>
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label for="password">Password</label>
+                  </div>
+                  <input type="password" name="password">
+                </div>
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label for="re_password">Re-enter Password</label>
+                  </div>
+                  <input type="password" name="re_password">
+                </div>
+                
+                <div class="field padding-bottom--24">
+                  <input type="submit" name="submit" value="Continue">
+                </div>
+                {% if messages %}
+                  {% for msg in messages %}
+                    <span style="color:red">{{msg}}</span>
+                  {% endfor %}
+                {% endif %}
+              </form>
+
+            </div>
+          </div>
+          <div class="footer-link padding-top--24">
+            <span>Already have an account? <a href="{% url 'login' %}">Sign in</a></span>
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+              <span><a href="#">Privacy & terms</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

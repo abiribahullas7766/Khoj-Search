@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% block content %}
+
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+      
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1 style="color: #000000;">Khoj The Search</h1>
+        </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15" style="color:#5469d4">Search your desired value</span>
+              <!--Form submission-->
+              <form id="stripe-login" method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+                <div class="field padding-bottom--24">
+                  <label for="inputvalues">Input values</label>
+                  <input type="text" name="inputvalues" placeholder='1,2,3,.....'>
+                </div>
+                <div class="field padding-bottom--24">
+                  <label for="search">Search value</label>
+                  <input type="text" name="searchvalues" placeholder='1'>
+                </div>
+                
+                <div class="field padding-bottom--24">
+                  <input type="submit" name="submit" value="Khoj">
+                </div>
+                {% if msg == 'show' %}
+                <label style="font-weight:600;font-size:1rem">Result: </label>{{flag}}
+                {% endif %}
+                {% if messages %}
+                  {% for msg in messages %}
+                    <span style="color:red">{{msg}}</span>
+                  {% endfor %}
+                {% endif %}
+              </form>
+
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
